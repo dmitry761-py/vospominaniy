@@ -5,41 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Запечатли моменты прекрасного дня</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h1>Запечатли моменты прекрасного дня</h1>
-    <button id="cameraBtn">📷 Создай воспоминание</button>
-    <div id="cameraContainer" hidden>
-      <video id="video" autoplay playsinline></video>
-      <div class="camera-row">
-        <label for="cameraSelect">Камера:</label>
-        <select id="cameraSelect">
-          <option value="user">Фронтальная</option>
-          <option value="environment">Задняя</option>
-        </select>
-      </div>
-      <div class="filter-row">
-        <label for="filterSelect">Фильтр:</label>
-        <select id="filterSelect">
-          <option value="none">Оригинал</option>
-          <option value="gta">GTA San Andreas</option>
-          <option value="retro">Retro</option>
-          <option value="tokio">Tokio</option>
-          <option value="peaky">Острые козырьки</option>
-        </select>
-      </div>
-      <button id="captureBtn">Сделать фото</button>
+    <div class="header">
+      <h1><i class="fas fa-camera-retro"></i> Запечатли моменты прекрасного дня</h1>
+      <p class="subtitle">Создай уникальные воспоминания с нашими магическими фильтрами</p>
     </div>
+    
+    <button id="cameraBtn" class="main-btn">
+      <i class="fas fa-camera"></i>
+      <span>📷 Создай воспоминание</span>
+    </button>
+    
+    <div id="cameraContainer" class="camera-fullscreen" hidden>
+      <div class="camera-header">
+        <button id="closeCamera" class="close-btn">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3>Создание воспоминания</h3>
+      </div>
+      
+      <video id="video" autoplay playsinline></video>
+      
+      <div class="camera-controls">
+        <div class="control-group">
+          <label for="cameraSelect">
+            <i class="fas fa-video"></i> Камера:
+          </label>
+          <select id="cameraSelect">
+            <option value="user">Фронтальная</option>
+            <option value="environment">Задняя</option>
+          </select>
+        </div>
+        
+        <div class="control-group">
+          <label for="filterSelect">
+            <i class="fas fa-magic"></i> Фильтр:
+          </label>
+          <select id="filterSelect">
+            <option value="none">Оригинал</option>
+            <option value="gta">GTA San Andreas</option>
+            <option value="retro">Retro</option>
+            <option value="tokio">Tokio</option>
+            <option value="peaky">Острые козырьки</option>
+            <option value="vintage">Винтаж</option>
+            <option value="neon">Неон</option>
+            <option value="sunset">Закат</option>
+            <option value="dramatic">Драматичный</option>
+            <option value="fairy">Сказочный</option>
+            <option value="cyberpunk">Киберпанк</option>
+            <option value="warm">Теплый</option>
+          </select>
+        </div>
+        
+        <div class="control-group">
+          <label for="modeSelect">
+            <i class="fas fa-star"></i> Режим:
+          </label>
+          <select id="modeSelect">
+            <option value="photo">Фото</option>
+            <option value="burst">Серия (3 фото)</option>
+            <option value="timer">Таймер (3 сек)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="capture-controls">
+        <button id="captureBtn" class="capture-btn">
+          <i class="fas fa-circle"></i>
+        </button>
+        <div id="timerDisplay" class="timer-display" hidden>3</div>
+      </div>
+      
+      <div class="filter-preview">
+        <div class="filter-thumbnails">
+          <div class="filter-thumb active" data-filter="none">Оригинал</div>
+          <div class="filter-thumb" data-filter="gta">GTA</div>
+          <div class="filter-thumb" data-filter="retro">Retro</div>
+          <div class="filter-thumb" data-filter="tokio">Tokio</div>
+          <div class="filter-thumb" data-filter="peaky">Peaky</div>
+          <div class="filter-thumb" data-filter="vintage">Винтаж</div>
+          <div class="filter-thumb" data-filter="neon">Неон</div>
+          <div class="filter-thumb" data-filter="sunset">Закат</div>
+          <div class="filter-thumb" data-filter="dramatic">Драма</div>
+          <div class="filter-thumb" data-filter="fairy">Сказка</div>
+          <div class="filter-thumb" data-filter="cyberpunk">Кибер</div>
+          <div class="filter-thumb" data-filter="warm">Теплый</div>
+        </div>
+      </div>
+    </div>
+    
     <canvas id="canvas" hidden></canvas>
-    <div id="result"></div>
-    <div class="share-row">
-      <a class="share-btn vk" id="vkShare" href="https://vospominaniy.onrender.com" target="_blank">VK</a>
-      <a class="share-btn tg" id="tgShare" href="https://vospominaniy.onrender.com" target="_blank">Telegram</a>
-      <a class="share-btn wa" id="waShare" href="https://vospominaniy.onrender.com" target="_blank">WhatsApp</a>
+    <div id="result" class="result-container"></div>
+    
+    <div class="share-section">
+      <h3><i class="fas fa-share-alt"></i> Поделись с друзьями</h3>
+      <div class="share-row">
+        <button class="share-btn vk" id="vkShare">
+          <i class="fab fa-vk"></i> VK
+        </button>
+        <button class="share-btn tg" id="tgShare">
+          <i class="fab fa-telegram"></i> Telegram
+        </button>
+        <button class="share-btn wa" id="waShare">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </button>
+      </div>
     </div>
   </div>
-  <footer>Development by Dmitry Terentev</footer>
+  
+  <footer>
+    <p><i class="fas fa-heart"></i> Development by Dmitry Terentev</p>
+  </footer>
+  
   <script src="script.js"></script>
 </body>
 </html> 
