@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Папка для сохранения фото на диске D:
 const uploadDir = 'D:/photo';
@@ -15,7 +15,7 @@ app.post('/upload', async (req, res) => {
   try {
     const imageBase64 = req.body.image.split(',')[1];
     const buffer = Buffer.from(imageBase64, 'base64');
-    const filename = `photo_${Date.now()}.jpg`;
+    const filename = photo_${Date.now()}.jpg;
     const filepath = path.join(uploadDir, filename);
 
     fs.writeFileSync(filepath, buffer);
@@ -26,4 +26,4 @@ app.post('/upload', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)); 
+app.listen(PORT, () => console.log(Server running on http://localhost:${PORT}));
