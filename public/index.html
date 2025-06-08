@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запечатли моменты прекрасного дня</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Запечатли моменты прекрасного дня</h1>
+    <button id="cameraBtn">📷 Создай воспоминание</button>
+    <div id="cameraContainer" hidden>
+      <video id="video" autoplay playsinline></video>
+      <div class="filter-row">
+        <label for="filterSelect">Фильтр:</label>
+        <select id="filterSelect">
+          <option value="none">Оригинал</option>
+          <option value="grayscale(1)">Чёрно-белый</option>
+          <option value="sepia(1)">Сепия</option>
+          <option value="contrast(1.5) brightness(1.2)">Яркий</option>
+          <option value="blur(2px)">Размытие</option>
+          <option value="invert(1)">Инверсия</option>
+          <option value="saturate(2)">Насыщенный</option>
+          <option value="hue-rotate(90deg)">Ретро</option>
+          <option value="brightness(0.7)">Виньетка</option>
+        </select>
+      </div>
+      <button id="captureBtn">Сделать фото</button>
+    </div>
+    <canvas id="canvas" hidden></canvas>
+    <div id="result"></div>
+    <div class="share-row">
+      <button class="share-btn vk" id="vkShare">VK</button>
+      <button class="share-btn tg" id="tgShare">Telegram</button>
+      <button class="share-btn wa" id="waShare">WhatsApp</button>
+    </div>
+  </div>
+  <footer>Development by Dmitry Terentev</footer>
+  <script src="script.js"></script>
+</body>
+</html> 
