@@ -15,7 +15,7 @@ app.post('/upload', async (req, res) => {
   try {
     const imageBase64 = req.body.image.split(',')[1];
     const buffer = Buffer.from(imageBase64, 'base64');
-    const filename = photo_${Date.now()}.jpg;
+    const filename = 'photo_${Date.now()}.jpg';
     const filepath = path.join(uploadDir, filename);
 
     fs.writeFileSync(filepath, buffer);
