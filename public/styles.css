@@ -101,4 +101,23 @@ footer {
   margin-bottom: 18px;
   letter-spacing: 0.5px;
   font-family: 'Segoe UI', Arial, sans-serif;
+}
+.camera-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px 0 8px 0;
+}
+.camera-row label {
+  font-size: 1rem;
+  color: #444;
+}
+#cameraSelect {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid #cfd8dc;
+  font-size: 1rem;
+  background: #f7faff;
+  color: #222a4d;
 } 
